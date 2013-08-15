@@ -1,0 +1,10 @@
+#!/bin/bash
+#man2pdf generates a PDF of manpages
+if(test $# != 0)
+then
+echo copying manpage [$1] to pdf format....
+man -t $1 > footemp.ps && ps2pdf12 footemp.ps && rm footemp.ps && mv footemp.pdf $1.pdf
+echo manpage [$1] copied to pdf format
+else
+echo man2pdf : arguments [manpage args]
+fi
